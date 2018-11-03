@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Despacho</title>
+    </h:head>
+    <h:body>
+        <h:form >
+            <p:dataTable value="#{paqueteBean.paquetes}" var ="p" id="fd">
+                <p:column headerText="Remitente">
+                    <h:outputText value="#{p.remitentePaquete}"/>
+                </p:column>
+                <p:column headerText="Destinatario">
+                    <h:outputText value="#{p.destinatarioPaquete}"/>
+                </p:column>
+                <p:column headerText="Direccion">
+                    <h:outputText value="#{p.direccionPaquete}"/>
+                </p:column>
+                <p:column headerText="Peso (g)">
+                    <h:outputText value="#{p.pesoPaquete}"/>
+                </p:column>
+                <p:column headerText="Distrito">
+                    <h:outputText value="#{p.distritodestinoPaquete.nombreDistrito}"/>
+                </p:column>
+                <p:column headerText="Precio (S/.)">
+                    <h:outputText value="#{p.precioenvioPaquete}"/>
+                </p:column>
+                <p:column>
+                    <p:commandButton value="Despachar" actionListener="#{paqueteBean.despachar(p)}" update="fd" >
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable> 
+        </h:form>
+        
+    </h:body>
+</html>
+
